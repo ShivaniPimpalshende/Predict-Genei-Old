@@ -166,7 +166,7 @@ class PredictionEngine:
             return {
                 "success": True,
                 "predicted_engagement_score": round(float(prediction), 4) *100,
-                "confidence_score": round(min(prediction * 10, 1), 2) 
+                "confidence_score": round(confidence, 2)
             }
 
         except Exception as e:

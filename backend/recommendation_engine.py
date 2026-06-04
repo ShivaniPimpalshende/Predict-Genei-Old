@@ -91,12 +91,14 @@ class RecommendationEngine:
                 mention_count=int(df["mention_count"].mean()),
                 cta_used="no_cta"
             )
-
+            print("Prediction Result:", result)
             if result["success"]:
                 predictions.append({
                     "content_type": post_type,
                     "avg_engagement": round(result["predicted_engagement_score"] * 100, 2),
+                     "confidence_score": result["confidence_score"],
                     "recommendation": f"{post_type.capitalize()} performs best"
+                     
                 })
 
         best_content = sorted(
@@ -133,7 +135,8 @@ class RecommendationEngine:
             if result["success"]:
                 cta_predictions.append({
                     "cta": cta,
-                    "predicted_engagement": round(result["predicted_engagement_score"] * 100, 2)
+                    "predicted_engagement": round(result["predicted_engagement_score"] * 100, 2),
+                     "confidence_score": result["confidence_score"]
                 })
 
         best_cta = sorted(

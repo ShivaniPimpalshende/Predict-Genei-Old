@@ -166,7 +166,9 @@
 # if __name__ == "__main__":
 #     import uvicorn
 #     uvicorn.run("main:app", reload=True)
+import warnings
 
+warnings.filterwarnings("ignore", category=UserWarning)
 from fastapi import FastAPI, UploadFile, File, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
