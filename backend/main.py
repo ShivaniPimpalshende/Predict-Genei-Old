@@ -353,6 +353,15 @@ def time_analysis(db: Session = Depends(get_db)):
     return AnalyticsEngine.get_time_analysis(db)
 
 # -----------------------------
+# TRAIN MODEL
+# -----------------------------
+@app.post("/train-model")
+def train_model(db: Session = Depends(get_db)):
+
+    result = prediction_engine.train(db)
+
+    return result
+# -----------------------------
 # RUN
 # -----------------------------
 if __name__ == "__main__":

@@ -230,13 +230,18 @@ Return ONLY JSON:
     # ⏰ FORMAT TIME
     # =========================
     @staticmethod
+    # def _format_time(hour: int) -> str:
+    #     period = "AM" if hour < 12 else "PM"
+    #     display_hour = hour if hour <= 12 else hour - 12
+    #     if display_hour == 0:
+    #         display_hour = 12
+    #     return f"{display_hour}:00 {period}"
+    @staticmethod
     def _format_time(hour: int) -> str:
-        period = "AM" if hour < 12 else "PM"
         display_hour = hour if hour <= 12 else hour - 12
         if display_hour == 0:
             display_hour = 12
-        return f"{display_hour}:00 {period}"
-
+        return f"{display_hour}:00 PM"
     # =========================
     # 📊 INSIGHTS
     # =========================
